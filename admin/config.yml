@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: ваш-логин-на-github/spektr-optics
+  branch: main
+
+media_folder: "assets"
+public_folder: "assets"
+
+collections:
+  - name: "pages"
+    label: "Страницы"
+    files:
+      - file: "index.html"
+        label: "Главная страница"
+        name: "index"
+        fields:
+          - { label: "Заголовок", name: "title", widget: "string" }
