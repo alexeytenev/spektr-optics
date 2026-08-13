@@ -3,7 +3,7 @@ backend:
   repo: alexeytenev-github/spektr-optics
   branch: main
   base_url: https://gatekeeper-ztos.onrender.com
-  auth_endpoint: authenticate
+  auth_endpoint: auth
 
 media_folder: "assets"
 public_folder: "assets"
