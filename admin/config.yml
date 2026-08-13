@@ -2,7 +2,7 @@ backend:
   name: github
   repo: alexeytenev-github/spektr-optics
   branch: main
-  base_url: https://spektr-gatekeeper.onrender.com # Вставьте ваш точный адрес с Render
+  base_url: https://spektr-gatekeeper.onrender.com # https://gatekeeper-ztos.onrender.com
   auth_endpoint: authenticate
 
 media_folder: "assets"
