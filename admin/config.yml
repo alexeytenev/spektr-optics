@@ -2,6 +2,8 @@ backend:
   name: github
   repo: alexeytenev-github/spektr-optics
   branch: main
+  base_url: https://spektr-gatekeeper.onrender.com # Вставьте ваш точный адрес с Render
+  auth_endpoint: authenticate
 
 media_folder: "assets"
 public_folder: "assets"
