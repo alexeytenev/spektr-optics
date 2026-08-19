@@ -6,59 +6,84 @@
     <title>Оптика "Спектр" - оптическое ателье</title>
     <meta name="description" content='Оптика "Спектр" на Дмитровском шоссе 25, к.1'>
     <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+
+    <!-- Шрифт Inter (замена Tilda Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* ===== БАЗА ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            color: #312500;
             line-height: 1.6;
             background: #fff;
         }
         img { max-width: 100%; height: auto; display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section-padding { padding: 80px 0; }
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 15px;
+        .section-padding { padding: 135px 0; }
+        @media (max-width: 768px) {
+            .section-padding { padding: 60px 0; }
         }
-        .section-subtitle {
-            font-size: 18px;
+
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #312500;
             text-align: center;
-            color: #666;
-            margin-bottom: 50px;
-            max-width: 700px;
+            max-width: 480px;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 20px;
         }
+        .section-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: #312500;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        @media (max-width: 768px) {
+            .section-title { font-size: 32px; max-width: 100%; }
+            .section-subtitle { font-size: 18px; }
+        }
+
         .btn {
             display: inline-block;
             background: #2f4f4f;
             color: #fff;
-            padding: 12px 30px;
+            padding: 14px 36px;
             border-radius: 30px;
             text-decoration: none;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
+            font-size: 16px;
             transition: 0.3s;
             border: none;
             cursor: pointer;
         }
-        .btn:hover { background: #1d3535; transform: scale(1.05); }
+        .btn:hover { background: #1d3535; transform: scale(1.03); }
         .btn-white { background: #fff; color: #2f4f4f; }
         .btn-white:hover { background: #f0f0f0; }
 
         /* ===== ШАПКА ===== */
         .header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.7);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: background 0.3s;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
+        .header.scrolled { background: rgba(255, 255, 255, 0.8); }
         .header .container {
             display: flex;
             justify-content: space-between;
@@ -68,14 +93,16 @@
         .header .logo { font-size: 24px; font-weight: 700; color: #2f4f4f; }
         .header .logo span { color: #6b8e8e; }
         .header nav a {
-            color: #555;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #312500;
             text-decoration: none;
             margin-left: 25px;
-            font-weight: 500;
+            font-size: 16px;
             transition: 0.3s;
         }
         .header nav a:hover { color: #2f4f4f; }
-        .header .btn { font-size: 14px; padding: 8px 20px; }
+        .header .btn { font-size: 14px; padding: 8px 22px; }
         .burger { display: none; font-size: 28px; cursor: pointer; }
 
         @media (max-width: 768px) {
@@ -85,69 +112,90 @@
             .burger { display: block; }
         }
 
-        /* ===== HERO (50/50) ===== */
+        /* ===== HERO (100vh, 50/50) ===== */
         .hero {
-            background: #f0f4f4;
-            padding: 60px 0;
+            background: #f7f7f7;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            min-height: 500px;
+            padding: 60px 0;
         }
         .hero .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
         }
         .hero-content h1 {
-            font-size: 38px;
-            font-weight: 700;
-            color: #1a2a2a;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #312500;
+            max-width: 480px;
             margin-bottom: 20px;
-            line-height: 1.2;
         }
         .hero-content p {
-            font-size: 18px;
-            color: #555;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: #312500;
             margin-bottom: 15px;
         }
-        .hero-content .price { font-size: 20px; font-weight: 500; color: #2f4f4f; }
-        .hero-image img { border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .hero-content .price { font-weight: 600; color: #2f4f4f; }
+        .hero-image img { border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
 
         @media (max-width: 768px) {
             .hero .container { grid-template-columns: 1fr; text-align: center; }
-            .hero-content h1 { font-size: 28px; }
+            .hero-content h1 { font-size: 32px; max-width: 100%; }
+            .hero-content p { font-size: 18px; }
             .hero-image { order: -1; }
+            .hero { min-height: auto; padding: 80px 0; }
         }
 
         /* ===== ПРЕИМУЩЕСТВА ===== */
-        .benefits { background: #fff; }
+        .benefits { background: #ffffff; }
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
         .benefit-item {
             text-align: center;
             padding: 20px;
-            border-radius: 10px;
-            transition: 0.3s;
         }
-        .benefit-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-5px); }
         .benefit-item img {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 15px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
             object-fit: contain;
         }
-        .benefit-item h3 { font-size: 20px; margin-bottom: 8px; }
-        .benefit-item p { color: #666; font-size: 15px; }
+        .benefit-item h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: #312500;
+            margin-bottom: 8px;
+        }
+        .benefit-item p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: #312500;
+        }
+        @media (max-width: 900px) {
+            .benefits-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 500px) {
+            .benefits-grid { grid-template-columns: 1fr; }
+            .benefit-item img { width: 60px; height: 60px; }
+        }
 
         /* ===== УСЛУГИ ===== */
-        .services { background: #f8fafa; }
+        .services { background: #f2f2f2; }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
         }
         .service-card {
@@ -157,59 +205,135 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.04);
             transition: 0.3s;
         }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .service-card:hover { transform: translateY(-6px); }
         .service-card .service-img {
             height: 200px;
             background-size: cover;
             background-position: center;
         }
         .service-card .service-content { padding: 20px; }
-        .service-card .service-content h3 { margin-bottom: 8px; }
-        .service-card .service-content p { color: #666; font-size: 15px; }
+        .service-card .service-content h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: #312500;
+            margin-bottom: 6px;
+        }
+        .service-card .service-content p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: #312500;
+        }
+        @media (max-width: 900px) {
+            .services-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 500px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
 
         /* ===== СТИЛЬ (ОЧКИ) ===== */
-        .style-block { background: #fff; }
+        .style-block { background: #ffffff; }
         .style-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
         }
-        .style-image img { border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .style-content h2 { margin-bottom: 15px; }
-        .style-content ul { list-style: none; padding: 0; margin-bottom: 20px; }
-        .style-content ul li { padding: 6px 0; border-bottom: 1px solid #eee; font-size: 16px; }
+        .style-image img {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            object-position: center 40%;
+        }
+        .style-content h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #312500;
+            max-width: 480px;
+            margin-bottom: 15px;
+        }
+        .style-content .sub {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: #312500;
+            margin-bottom: 10px;
+        }
+        .style-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .style-content ul li {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: #312500;
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+        }
         .style-content ul li:last-child { border-bottom: none; }
-        .style-content .small-note { font-size: 14px; color: #888; margin-top: 10px; }
-
+        .style-content p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: #312500;
+        }
+        .style-content .small-note {
+            font-size: 16px;
+            color: #888;
+            margin-top: 10px;
+        }
         @media (max-width: 768px) {
             .style-wrapper { grid-template-columns: 1fr; }
-            .style-image { order: -1; }
+            .style-image { order: 2; }
+            .style-image img { height: 280px; }
+            .style-content h2 { font-size: 32px; max-width: 100%; }
         }
 
         /* ===== О НАС ===== */
-        .about { background: #fff; }
+        .about { background: #ffffff; }
         .about-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
         }
         .about-image {
-            height: 400px;
+            height: 450px;
             background: url('images/about-bg.jpg') center/cover;
             border-radius: 15px;
         }
-        .about-content h2 { margin-bottom: 20px; }
-        .about-content p { margin-bottom: 15px; color: #555; }
-
+        .about-content h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #312500;
+            max-width: 480px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .about-content p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: #312500;
+            margin-bottom: 15px;
+        }
         @media (max-width: 768px) {
             .about-wrapper { grid-template-columns: 1fr; }
-            .about-image { height: 250px; }
+            .about-image { height: 280px; order: -1; }
+            .about-content h2 { font-size: 32px; max-width: 100%; text-align: center; }
         }
 
         /* ===== ГАЛЕРЕЯ (карусель) ===== */
-        .gallery { background: #f8fafa; }
+        .gallery { background: #f2f2f2; }
         .slider-container {
             overflow: hidden;
             position: relative;
@@ -270,12 +394,91 @@
         }
         .slider-dots button.active { background: #000; transform: scale(1.2); }
 
-        /* ===== ОПРАВЫ ===== */
-        .frames { background: #fff; }
+        /* ===== ОТЗЫВЫ (карусель) ===== */
+        .reviews { background: #f7f7f7; padding: 135px 0; }
+        .reviews-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .reviews-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .review-slide {
+            min-width: 100%;
+            padding: 0 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .review-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: #312500;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .review-author {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #312500;
+        }
+        .reviews-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(232,232,232,0.8);
+            border: 1px solid #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .reviews-arrow:hover { background: #000; color: #fff; }
+        .reviews-arrow-prev { left: 0; }
+        .reviews-arrow-next { right: 0; }
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .reviews-dots button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: #c7c7c7;
+            cursor: pointer;
+            padding: 0;
+            transition: 0.2s;
+        }
+        .reviews-dots button.active { background: #000; transform: scale(1.2); }
+
+        @media (max-width: 768px) {
+            .reviews { padding: 60px 0; }
+            .review-text { font-size: 18px; }
+            .reviews-arrow { width: 32px; height: 32px; font-size: 18px; }
+        }
+
+        /* ===== ОПРАВЫ (сетка 3x2) ===== */
+        .frames { background: #ffffff; }
         .frames-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         .frame-item {
             text-align: center;
@@ -284,58 +487,59 @@
             border-radius: 15px;
             transition: 0.3s;
         }
-        .frame-item:hover { transform: scale(1.03); }
+        .frame-item:hover { transform: scale(1.02); }
         .frame-item img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 10px;
         }
-        .frame-item h4 { font-size: 16px; }
-
-        /* ===== ОТЗЫВЫ ===== */
-        .reviews { background: #f0f4f4; text-align: center; padding: 60px 0; }
-        .review-slide { max-width: 700px; margin: 0 auto 40px; }
-        .review-text {
+        .frame-item h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
             font-size: 18px;
-            font-style: italic;
-            color: #444;
-            margin-bottom: 15px;
+            color: #312500;
         }
-        .review-author { font-weight: 600; color: #2f4f4f; }
+        @media (max-width: 768px) {
+            .frames-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .frames-grid { grid-template-columns: 1fr; }
+        }
 
         /* ===== КОНТАКТЫ ===== */
-        .contact-info { background: #fff; }
+        .contact-info { background: #ffffff; }
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
         }
-        .contact-details p { margin-bottom: 15px; font-size: 18px; }
+        .contact-details p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: #312500;
+            margin-bottom: 15px;
+        }
         .contact-details i { width: 30px; color: #2f4f4f; }
-        .map-container {
-            height: 450px;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        .map-container iframe {
+        .contact-details .btn { margin-top: 15px; }
+        .contact-image img {
             width: 100%;
-            height: 100%;
-            border: 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
-
         @media (max-width: 768px) {
             .contact-grid { grid-template-columns: 1fr; }
-            .map-container { height: 300px; }
+            .contact-image { order: -1; }
         }
 
         /* ===== ПОДВАЛ ===== */
         .footer {
-            background: #1a2a2a;
-            color: #aaa;
-            padding: 30px 0;
+            background: #6b6b6b;
+            color: #fff;
+            padding: 40px 0;
             text-align: center;
         }
         .footer .footer-grid {
@@ -343,16 +547,36 @@
             grid-template-columns: 1fr auto 1fr;
             gap: 20px;
             align-items: center;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
-        .footer .footer-left { text-align: left; font-size: 14px; line-height: 1.8; }
-        .footer .footer-center { text-align: center; }
+        .footer .footer-left {
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #fff;
+        }
+        .footer .footer-center {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #fff;
+        }
+        .footer .footer-center a {
+            color: #fff;
+            text-decoration: underline;
+        }
         .footer .footer-right { text-align: right; }
-        .footer a { color: #ccc; text-decoration: none; }
-        .footer a:hover { color: #fff; }
-        .footer .btn { font-size: 14px; padding: 8px 20px; }
-
+        .footer .btn {
+            background: #fff;
+            color: #2f4f4f;
+            font-size: 14px;
+            padding: 8px 22px;
+        }
+        .footer .btn:hover { background: #f0f0f0; }
         @media (max-width: 768px) {
             .footer .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .footer .footer-left { text-align: center; }
@@ -363,7 +587,7 @@
 <body>
 
     <!-- ===== ШАПКА ===== -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
             <div class="logo">Оптика <span>Спектр</span></div>
             <div class="burger" id="burgerBtn"><i class="fas fa-bars"></i></div>
@@ -374,18 +598,18 @@
                 <a href="#reviews">Отзывы</a>
                 <a href="#contact">Контакты</a>
             </nav>
-            <a href="tel:+74999762030" class="btn">Позвонить</a>
+            <a href="#contact" class="btn">Позвонить</a>
         </div>
     </header>
 
-    <!-- ===== HERO (50/50) ===== -->
-    <section class="hero">
+    <!-- ===== HERO (100vh) ===== -->
+    <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Забота о здоровье ваших глаз в комфортной и спокойной обстановке</h1>
                 <p>Очки, которые удобно носить каждый день и которые дополняют ваш стиль</p>
                 <p class="price">Оптика в Москве. Проверка зрения бесплатно</p>
-                <a href="tel:+74999762030" class="btn">Позвонить</a>
+                <a href="#contact" class="btn">Позвонить</a>
             </div>
             <div class="hero-image">
                 <img src="images/hero.jpg" alt="Оптика Спектр">
@@ -459,16 +683,13 @@
         </div>
     </section>
 
-    <!-- ===== СТИЛЬ (ОЧКИ) ===== -->
+    <!-- ===== СТИЛЬ ===== -->
     <section class="style-block section-padding">
         <div class="container">
             <div class="style-wrapper">
-                <div class="style-image">
-                    <img src="images/style-glasses.jpg" alt="Очки и стиль">
-                </div>
                 <div class="style-content">
                     <h2>Очки — это не только зрение, но и стиль</h2>
-                    <p style="font-size: 18px; color: #555; margin-bottom: 10px;">Как найти свой идеальный образ</p>
+                    <p class="sub">Как найти свой идеальный образ</p>
                     <ul>
                         <li>1. Проверка зрения</li>
                         <li>2. Анализ образа жизни</li>
@@ -477,8 +698,11 @@
                         <li>5. Настройка посадки</li>
                     </ul>
                     <p>Очки давно стали частью повседневного образа. Поможем подобрать оправу, которая подчеркнёт внешность, подойдёт под характер и будет удобна в повседневной жизни.</p>
-                    <a href="tel:+74999762030" class="btn" style="margin-top: 15px;">Узнать подробнее</a>
+                    <a href="#contact" class="btn" style="margin-top: 15px;">Узнать подробнее</a>
                     <p class="small-note">В среднем занимает 20–40 минут</p>
+                </div>
+                <div class="style-image">
+                    <img src="images/style-glasses.jpg" alt="Очки и стиль">
                 </div>
             </div>
         </div>
@@ -488,15 +712,15 @@
     <section id="about" class="about section-padding">
         <div class="container">
             <div class="about-wrapper">
-                <div class="about-image"></div>
                 <div class="about-content">
-                    <h2 class="section-title" style="text-align: left;">О нас</h2>
+                    <h2>О нас</h2>
                     <p>Выбор очков требует точности и понимания стиля и образа жизни.</p>
                     <p>В салоне работают оптометристы с многолетним опытом, которые помогают подобрать решение, подходящее именно вам.</p>
                     <p>Важно, чтобы очки были не только полезны для зрения, но и комфортны в повседневной жизни.</p>
                     <p>Также всегда в наличии широкий выбор контактных линз, включая ежедневные, плановой замены и цветные.</p>
-                    <a href="tel:+74999762030" class="btn" style="margin-top: 15px;">Позвонить</a>
+                    <a href="#contact" class="btn" style="margin-top: 15px;">Позвонить</a>
                 </div>
+                <div class="about-image"></div>
             </div>
         </div>
     </section>
@@ -531,7 +755,7 @@
         </div>
     </section>
 
-    <!-- ===== ОПРАВЫ ===== -->
+    <!-- ===== ОПРАВЫ (3x2) ===== -->
     <section id="frames" class="frames section-padding">
         <div class="container">
             <h2 class="section-title">Оправы</h2>
@@ -547,101 +771,17 @@
         </div>
     </section>
 
-    <!-- ===== ОТЗЫВЫ ===== -->
+    <!-- ===== ОТЗЫВЫ (карусель) ===== -->
     <section id="reviews" class="reviews">
         <div class="container">
             <h2 class="section-title">Отзывы клиентов</h2>
             <p class="section-subtitle">Люди, которые уже сделали очки у нас</p>
-            <div class="review-slide">
-                <div class="review-text">"Отличная оптика, продавец общительный, ответил на все вопросы, знает своё дело. Вышло относительно не дорого, со скидкой 40% на французские линзы"</div>
-                <div class="review-author">Айнур Каримов</div>
-            </div>
-            <div class="review-slide">
-                <div class="review-text">"Помогли выбрать оправу, которая действительно подошла. Ношу каждый день без дискомфорта."</div>
-                <div class="review-author">Маргарита</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== КОНТАКТЫ ===== -->
-    <section id="contact" class="contact-info section-padding">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            <div class="contact-grid">
-                <div class="contact-details">
-                    <p><i class="fas fa-map-marker-alt"></i> г. Москва, Дмитровское шоссе, дом 25 корпус 1 подъезд 6</p>
-                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+74999762030" style="color: #2f4f4f; text-decoration: none;">+7 (499) 976-20-30</a></p>
-                    <p><i class="fas fa-clock"></i> Пн-Пт: 10:00 – 19:00, Сб-Вс: 10:00 – 18:00</p>
-                    <p style="margin-top: 20px;">Ждём вас в салоне. Забота о здоровье Ваших глаз в комфортной и спокойной обстановке.</p>
-                    <a href="tel:+74999762030" class="btn" style="margin-top: 15px;">Позвонить</a>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5a1e7e5710b946a1bd0d48cc581fb690db3ba53662ae7a0fe7fdc5d8facd6fb3&amp;source=constructor" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== ПОДВАЛ ===== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-left">
-                    Наименование организации: Оптика "Спектр" - оптическое ателье<br>
-                    ИП Соловьева Л.В.<br>
-                    ОГРНИП: 325774600225341<br>
-                    ИНН: 504706046209
-                </div>
-                <div class="footer-center">
-                    © Все материалы защищены<br>
-                    <a href="#" style="text-decoration: underline;">Политика конфиденциальности</a>
-                </div>
-                <div class="footer-right">
-                    <a href="tel:+74999762030" class="btn">Позвонить</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===== СКРИПТЫ ===== -->
-    <script>
-        // Бургер-меню
-        document.getElementById('burgerBtn').addEventListener('click', function() {
-            document.getElementById('mainNav').classList.toggle('active');
-        });
-
-        // Карусель (15 слайдов)
-        const track = document.getElementById('sliderTrack');
-        const slides = track.querySelectorAll('.slider-slide');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('dotsContainer');
-        let currentIndex = 0;
-        const totalSlides = slides.length;
-
-        if (totalSlides > 0) {
-            // Создаём точки
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
-                dot.setAttribute('data-index', i);
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                dotsContainer.appendChild(dot);
-            }
-
-            function goToSlide(index) {
-                if (index < 0) index = totalSlides - 1;
-                if (index >= totalSlides) index = 0;
-                currentIndex = index;
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                document.querySelectorAll('.slider-dots button').forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentIndex);
-                });
-            }
-
-            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-        }
-    </script>
-</body>
-</html>
+            <div class="reviews-slider" id="reviewsSlider">
+                <div class="reviews-track" id="reviewsTrack">
+                    <div class="review-slide">
+                        <div class="review-text">"Отличная оптика, продавец общительный, ответил на все вопросы, знает своё дело. Вышло относительно не дорого, со скидкой 40% на французские линзы"</div>
+                        <div class="review-author">Айнур Каримов</div>
+                    </div>
+                    <div class="review-slide">
+                        <div class="review-text">"Помогли выбрать оправу, которая действительно подошла. Ношу каждый день без дискомфорта."</div>
+                        <div class
